@@ -13,6 +13,16 @@ This is a basic site template that I use to kick off a lot of my projects. Uses 
   $ unicorn
   navigate to http://localhost:8080/
 
+== Caching
+
+This template comes with hooks in to Heroku's memcache plugin for caching pages. To set up memcache on heroku:
+
+  $ heroku addons:add memcache
+
+Then uncomment this line in application.rb
+
+  $ cache_control :public, max_age: 1800  # 30 min
+
 == Dependencies
 
 * {Ruby 1.9.3}[http://www.ruby-lang.org/en/downloads]

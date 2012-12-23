@@ -25,6 +25,8 @@ module SiteTemplate
     helpers SiteTemplate::HtmlHelpers
     
     get "/" do
+      # uncomment this line to cache this route
+      # cache_control :public, max_age: 1800  # 30 min
       haml :index
     end
     
