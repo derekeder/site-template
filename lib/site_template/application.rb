@@ -29,6 +29,16 @@ module SiteTemplate
       # cache_control :public, max_age: 1800  # 30 min
       haml :index
     end
+
+    # utility for flushing cache
+    get "/flush_cache" do
+      if memcache_servers = ENV["MEMCACHE_SERVERS"]
+        require 'dalli'
+        dc = Dalli::Client.new
+        dc.flush
+      end
+      redirect "/"
+    end
     
     # catchall for static pages
     get "/:page/?" do
