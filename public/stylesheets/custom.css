@@ -2,11 +2,23 @@
   max-width: none;
 }
 
-a { color: #4B58A6; }
-.well { background-color: #e8ebfb; }
-
-.nav-pills > .active > a,
-.nav-pills > .active > a:hover {
-  color: #ffffff;
-  background-color: #4B58A6;
+th.sorting_asc span {
+  background: url(/images/sort-up.png) no-repeat 100% 50%;
+  padding-right: 10px;
 }
+
+th.sorting_desc span {
+  background: url(/images/sort-down.png) no-repeat 100% 50%;
+  padding-right: 10px;
+}
+
+/* Axis */
+.xaxis { clear: both; color: #777; font-weight: normal; list-style: none; margin-bottom: 25px; margin-right: 9px; font-size: 9px; width:300px;}
+.xaxis .tick { float: left; margin: 0; text-align: center; width: 33.33%; }
+.xaxis .tick.first { text-align: left; }
+.xaxis .tick.last { float: right; text-align: right; }
+
+/* DataTables */
+.datatable { clear: both; }
+.dataTables_filter { float: left; margin-bottom: 1em; }
+.dataTables_filter input { padding: 0.3em; width: 15em; }

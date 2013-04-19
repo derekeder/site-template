@@ -1,16 +1,14 @@
-!!! 5
+!!!
 %html{:lang => "en"}
   %head
-    %title Site Title
-    %meta{:charset => "utf-8"}
-
-    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
-    %meta{:content => "", :name => "description"}
-    %meta{:content => "", :name => "author"}
-            
-    / Styles
-    = include_stylesheet :bootstrap
-    = include_stylesheet "bootstrap-responsive"
+    %meta{:charset => "utf-8"}/
+    %title Site Template
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :name => "author"}/
+    / Le styles
+    = include_stylesheet "bootstrap.min"
+    = include_stylesheet "bootstrap-responsive.min"
     = include_stylesheet :custom
     = content :stylesheets
     
@@ -19,24 +17,27 @@
       = include_javascript "http://html5shim.googlecode.com/svn/trunk/html5.js"
 
   %body
-    .container-fluid
-      .page-header
-        %h1
-          <a href='/'>Site Title</a> <small>This is a tagline</small>
+    .navbar.navbar-inverse.navbar-static-top
+      .navbar-inner
+        .container
+          %button.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse", :type => "button"}
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.brand{:href => "#"} Site Template
+          .nav-collapse.collapse
+            %ul.nav
+              %li.active
+                %a{:href => "#"} Home
+              %li
+                %a{:href => "#about"} About
 
-      = yield
-      
-    %footer.footer
-      .span12
-        %p
-          Website by 
-          %a{:href => "http://derekeder.com", :title => "Derek Eder"}
-            Derek Eder
-          &copy; 2012
-    
+    .container
+      =yield
+
+
     = include_javascript :jquery
-    = include_javascript :bootstrap
+    = include_javascript "bootstrap.min"
     = content :javascripts
 
     = include_javascript :"analytics_lib" if production?
-
